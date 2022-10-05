@@ -18,4 +18,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', 'IndexController')->name('index');
 });
 
+Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'], function () {
+    Route::get('/', 'IndexController')->name('admin.index');
+});
+
 Auth::routes();
