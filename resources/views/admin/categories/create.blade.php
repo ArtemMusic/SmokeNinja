@@ -26,8 +26,9 @@
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
                         <div class="col-12">
-                            <form action="#" class="w-25">
-                                <input type="text" class="form-control" placeholder="Название">
+                            <form action="{{route('admin.category.store')}}" class="w-25" method="POST">
+                                @csrf
+                                <input  name="title" type="text" class="form-control" placeholder="Название">
                                 <button type="submit" class="mt-3 btn btn-block btn-outline-success">Создать</button>
                                 <button type="reset" class="btn btn-block btn-outline-secondary">Сбросить</button>
                             </form>
