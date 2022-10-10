@@ -10,7 +10,8 @@ class Service{
         return $category;
     }
 
-    // public function update(){
-
-    // }
+    public function update($data, $category){
+        $category -> update($data);
+        return $category;
+    }
 }
