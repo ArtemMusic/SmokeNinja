@@ -28,7 +28,7 @@
                 <div class="col-1"><a href="{{route('admin.category.create')}}" class="btn btn-block btn-primary">Создать</a></div>
             </div>
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <div class="card">
                         <div class="card-header">
 
@@ -39,7 +39,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Название</th>
-                                            <th>Действия</th>
+                                            <th colspan="2" class="text-center">Действия</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -48,6 +48,7 @@
                                             <td>{{$category->id}}</td>
                                             <td>{{$category->title}}</td>
                                             <td><a href="{{route('admin.category.show', $category->id)}}"><i class="fa-thin fas fa-eye"></i></a></td>
+                                            <td><a href="{{route('admin.category.edit', $category->id)}}"><i class="fa-thin fas fa-pen"></i></a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>
