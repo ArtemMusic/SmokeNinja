@@ -28,7 +28,7 @@
                 <div class="col-1"><a href="{{route('admin.category.create')}}" class="btn btn-block btn-primary">Создать</a></div>
             </div>
             <div class="row">
-                <div class="col-6">
+                <div class="col-5">
                     <div class="card">
                         <div class="card-header">
 
@@ -39,7 +39,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Название</th>
-                                            <th colspan="2" class="text-center">Действия</th>
+                                            <th colspan="3" class="text-center">Действия</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -49,6 +49,13 @@
                                             <td>{{$category->title}}</td>
                                             <td><a href="{{route('admin.category.show', $category->id)}}"><i class="fa-thin fas fa-eye"></i></a></td>
                                             <td><a href="{{route('admin.category.edit', $category->id)}}"><i class="fa-thin fas fa-pen text-success"></i></a></td>
+                                            <td>
+                                                <form action="{{route('admin.category.delete', $category->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="border-0 bg-transparent"><i class="fa-thin fas fa-trash text-danger" role="button"></i></button>
+                                                </form>
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>

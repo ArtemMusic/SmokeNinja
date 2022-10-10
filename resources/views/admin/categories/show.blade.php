@@ -8,6 +8,11 @@
             <div class="row mb-2">
                 <div class="col-sm-6 d-flex align-items-center">
                     <h1 class="m-0 mr-2">{{$category->title}}</h1> <a href="{{route('admin.category.edit', $category->id)}}"><i class="fa-thin fas fa-pen text-success"></i></a>
+                    <form action="{{route('admin.category.delete', $category->id)}}" method="POST" class="ml-1">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="border-0 bg-transparent"><i class="fa-thin fas fa-trash text-danger" role="button"></i></button>
+                    </form>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -23,12 +28,12 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-        <div class="row">
+            <div class="row">
                 <div class="col-4">
                     <div class="card">
                         <div class="card-header">
-                <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                         <tr>
@@ -44,11 +49,11 @@
                                     </tbody>
                                 </table>
                             </div>
-                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- /.row -->
-            
+
             </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
