@@ -11,8 +11,8 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Главная</a></li>
-                        <li class="breadcrumb-item active">AdminPanel</li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.category.index')}}">Категории</a></li>
+                        <li class="breadcrumb-item active">CategoryList</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
