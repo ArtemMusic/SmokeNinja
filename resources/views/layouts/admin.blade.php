@@ -97,6 +97,11 @@
             bsCustomFileInput.init();
         });
     </script>
+    <style>
+    .custom-file-input:lang(en)~.custom-file-label::after{
+        content: "выбрать";
+    }
+    </style>
 </body>
 
 </html>

@@ -71,6 +71,16 @@
                             @enderror
                         </div>
                         <div class="form-group w-25">
+                        <label for="exampleInputFile">Добавить категорию</label>
+                        <select id="category_id" class="form-control" name="category_id"
+                        >
+                        @foreach($categories as $category)
+                        <option value="{{$category->id}}"
+                        {{$category->id == old('category_id') ? 'selected' : ''}}>{{$category->title}}</option>
+                        @endforeach
+                        </select>
+                        </div>
+                        <div class="form-group w-25">
                             <input type="submit" class="mt-3 btn btn-block btn-outline-success" value="Создать">
                         </div>
                     </form>
