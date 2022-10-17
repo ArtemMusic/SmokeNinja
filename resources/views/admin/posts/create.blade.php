@@ -51,6 +51,9 @@
                                     <span class="input-group-text">Загрузка</span>
                                 </div>
                             </div>
+                            @error('preview_image')
+                            <p class="text-danger">Поле необходимо для заполнения</p>
+                            @enderror
                         </div>
                         <div class="form-group w-50">
                             <label for="exampleInputFile">Добавить главное изображение</label>
@@ -63,6 +66,9 @@
                                     <span class="input-group-text">Загрузка</span>
                                 </div>
                             </div>
+                            @error('main_image')
+                            <p class="text-danger">Поле необходимо для заполнения</p>
+                            @enderror
                         </div>
                         <div class="form-group w-25">
                             <input type="submit" class="mt-3 btn btn-block btn-outline-success" value="Создать">
