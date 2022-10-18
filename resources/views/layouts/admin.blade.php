@@ -10,6 +10,8 @@
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -75,6 +77,7 @@
     <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.js"></script>
+    <script src="plugins/select2/js/select2.full.min.js"></script>
     <!-- Summernote -->
     <script src="plugins/summernote/summernote-bs4.min.js"></script>
     <script>
@@ -91,6 +94,12 @@
                 ]
             });
         });
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        });
     </script>
     <script>
         $(function() {
@@ -98,9 +107,9 @@
         });
     </script>
     <style>
-    .custom-file-input:lang(en)~.custom-file-label::after{
-        content: "выбрать";
-    }
+        .custom-file-input:lang(en)~.custom-file-label::after {
+            content: "выбрать";
+        }
     </style>
 </body>
 

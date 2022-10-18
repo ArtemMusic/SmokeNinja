@@ -9,9 +9,13 @@ class StoreController extends BaseController
 {
     public function __invoke(StoreRequest $request)
     {
-        $data = $request->validated();
-        // dd($data);
-        $this->service->store($data);
-        return redirect() -> route('admin.post.index');
+        try {
+            $data = $request->validated();
+            // dd($data);
+            $this->service->store($data);
+        } catch (\Exception $exception) {
+            abort(404);
+        }
+        return redirect()->route('admin.post.index');
     }
 }
