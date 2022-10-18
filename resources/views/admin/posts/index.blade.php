@@ -39,7 +39,7 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>Название</th>
-                                            <th colspan="3" class="text-center">Действия</th>
+                                            <th colspan="2" class="">Действия</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -47,7 +47,6 @@
                                         <tr>
                                             <td>{{$post->id}}</td>
                                             <td>{{$post->title}}</td>
-                                            <td><a href="{{route('admin.post.show', $post->id)}}"><i class="fa-thin fas fa-eye"></i></a></td>
                                             <td><a href="{{route('admin.post.edit', $post->id)}}"><i class="fa-thin fas fa-pen text-success"></i></a></td>
                                             <td>
                                                 <form action="{{route('admin.post.delete', $post->id)}}" method="POST">
