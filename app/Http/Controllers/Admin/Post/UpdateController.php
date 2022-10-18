@@ -8,10 +8,13 @@ use Illuminate\Http\Request;
 
 class UpdateController extends BaseController
 {
-    public function __invoke(UpdateRequest $request, Post $category)
+    public function __invoke(UpdateRequest $request, Post $post)
     {
-        $data = $request -> validated();
-        $this -> service -> update($data, $category);
+        
+            $data = $request->validated();
+            // dd($data);
+            $this -> service -> update($data, $post);
+        
         return redirect() -> route('admin.post.show', compact('post'));
     }
 }
