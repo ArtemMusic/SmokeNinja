@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<!-- <base href="{{ asset('/') }}"> -->
+    <!-- <base href="{{ asset('/') }}"> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,6 +14,7 @@
     <script src="{{asset('assets/vendors/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('assets/js/loader.js')}}"></script>
 </head>
+
 <body>
     <div class="edica-loader"></div>
     <header class="edica-header">
@@ -61,7 +63,7 @@
         </div>
     </header>
 
-  @yield('content')
+    @yield('content')
 
     <section class="edica-footer-banner-section">
         <div class="container">
@@ -145,7 +147,7 @@
         AOS.init({
             duration: 1000
         });
-      </script>
+    </script>
 </body>
 
 </html>
