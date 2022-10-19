@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin\Category;
 
 use App\Http\Requests\Admin\Category\StoreRequest;
-use Illuminate\Http\Request;
 
 class StoreController extends BaseController
 {
@@ -11,6 +10,6 @@ class StoreController extends BaseController
     {
         $data = $request->validated();
         $this->service->store($data);
-        return redirect() -> route('admin.category.index');
+        return redirect()->route('admin.category.index');
     }
 }

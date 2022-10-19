@@ -11,6 +11,6 @@ class StoreController extends BaseController
     {
         $data = $request->validated();
         $this->service->store($data);
-        return redirect() -> route('admin.tag.index');
+        return redirect()->route('admin.tag.index');
     }
 }
