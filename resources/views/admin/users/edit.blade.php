@@ -29,12 +29,15 @@
                     <form action="{{route('admin.user.update', $user->id)}}" class="w-25" method="POST">
                         @method('patch')
                         @csrf
-                        <input id="name" name="name" type="text" class="form-control" placeholder="Имя (макс. 20с)" maxlength="20" value="{{$user->name}}">
+                        <input id="name" name="name" type="text" class="form-control mb-2" placeholder="Имя (макс. 20с)" maxlength="20" value="{{$user->name}}">
                         @error('name')
                         <p class="text-danger">Поле необходимо для заполнения</p>
                         @enderror
+                        <input id="email" name="email" type="mail" class="form-control mb-2" placeholder="Email" value="{{$user->email}}">
+                        @error('email')
+                        <p class="text-danger">{{$message}}</p>
+                        @enderror
                         <button type="submit" class="mt-3 btn btn-block btn-outline-success">Изменить</button>
-                        <button type="reset" class="btn btn-block btn-outline-secondary">Сбросить</button>
                     </form>
                 </div>
                 <!-- /.row -->

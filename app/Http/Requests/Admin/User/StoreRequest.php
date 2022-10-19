@@ -24,7 +24,18 @@ class StoreRequest extends FormRequest
     public function rules() // правила
     {
         return [
-            
+            "name" => "required|string",
+            "email" => "required|string|email|unique:users",
+            "password" => "required|string",
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            "email.unique" => "Данная почта уже судествует",
+            "email.required" => "Поле необходимо для заполнения",
+            "email.email" => "Неверный формат почты",
         ];
     }
 }

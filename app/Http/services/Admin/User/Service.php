@@ -8,7 +8,7 @@ class Service
 {
     public function store($data)
     {
-        $user = User::FirstOrCreate($data);
+        $user = User::FirstOrCreate(["email" => $data['email']], $data);
         return $user;
     }
 

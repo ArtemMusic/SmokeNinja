@@ -9,6 +9,6 @@ class DeleteController extends BaseController
     public function __invoke(User $user)
     {
         $user->delete();
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.user.index');
     }
 }

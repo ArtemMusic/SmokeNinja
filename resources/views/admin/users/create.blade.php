@@ -28,12 +28,19 @@
                 <div class="col-12">
                     <form action="{{route('admin.user.store')}}" class="w-25" method="POST">
                         @csrf
-                        <input id="name" name="name" type="text" class="form-control" placeholder="Имя (макс. 20с)" maxlength="20">
+                        <input id="name" name="name" type="text" class="form-control mb-2" placeholder="Имя (макс. 20с)" maxlength="20" value="{{old('name')}}">
                         @error('name')
                         <p class="text-danger">Поле необходимо для заполнения</p>
                         @enderror
+                        <input id="email" name="email" type="mail" class="form-control mb-2" placeholder="Email" value="{{old('email')}}">
+                        @error('email')
+                        <p class="text-danger">{{$message}}</p>
+                        @enderror
+                        <input id="password" name="password" type="text" class="form-control mb-2" placeholder="Пароль" value="{{old('password')}}">
+                        @error('password')
+                        <p class="text-danger">Поле необходимо для заполнения</p>
+                        @enderror
                         <button type="submit" class="mt-3 btn btn-block btn-outline-success">Создать</button>
-                        <button type="reset" class="btn btn-block btn-outline-secondary">Сбросить</button>
                     </form>
                 </div>
             </div>

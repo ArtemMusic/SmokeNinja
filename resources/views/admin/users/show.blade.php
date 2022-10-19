@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6 d-flex align-items-center">
-                    <h1 class="m-0 mr-2">{{$user->title}}</h1> <a href="{{route('admin.user.edit', $user->id)}}"><i class="fa-thin fas fa-pen text-success"></i></a>
+                    <h1 class="m-0 mr-2">{{$user->name}}</h1> <a href="{{route('admin.user.edit', $user->id)}}"><i class="fa-thin fas fa-pen text-success"></i></a>
                     <form action="{{route('admin.user.delete', $user->id)}}" method="POST" class="ml-1">
                         @csrf
                         @method('delete')
