@@ -37,6 +37,17 @@
                         @error('email')
                         <p class="text-danger">{{$message}}</p>
                         @enderror
+                        <div class="form-group">
+                            <label for="exampleInputFile">Добавить роль</label>
+                            <select id="role" class="form-control" name="role">
+                                @foreach($roles as $id => $role)
+                                <option value="{{$id}}" {{$id == $user->role ? 'selected' : ''}}>{{$role}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('role')
+                        <p class="text-danger">{{$message}}</p>
+                        @enderror
                         <button type="submit" class="mt-3 btn btn-block btn-outline-success">Изменить</button>
                     </form>
                 </div>
