@@ -48,6 +48,9 @@
                         @error('role')
                         <p class="text-danger">{{$message}}</p>
                         @enderror
+                        <div class="form-group">
+                            <input type="hidden" name="user_id" value="{{$user->id}}">
+                        </div>
                         <button type="submit" class="mt-3 btn btn-block btn-outline-success">Изменить</button>
                     </form>
                 </div>

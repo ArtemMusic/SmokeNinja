@@ -25,11 +25,12 @@ class UpdateRequest extends FormRequest
     {
         return [
             "name" => "required|string",
-            "email" => "required|string|email|unique:users",
+            "email" => "required|string|email|unique:users,email," . $this->user_id,
             "role" => "required|integer",
+            "user_id" => "required|integer|exists:users,id",
         ];
     }
-    
+
     public function messages()
     {
         return [
