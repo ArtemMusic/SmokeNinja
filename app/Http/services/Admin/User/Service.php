@@ -2,6 +2,7 @@
 
 namespace App\Http\services\Admin\User;
 
+use App\Jobs\StoreUserJob;
 use App\Mail\User\PasswordMail;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
@@ -13,12 +14,7 @@ class Service
 {
     public function store($data)
     {
-        $password = Str::random(10);
-        $data['password'] = Hash::make($password);
-        $user = User::FirstOrCreate(["email" => $data['email']], $data);
-        Mail::to($data['email'])->send(new PasswordMail($password));
-        event(new Registered($user));
-        return $user;
+        // StoreUserJob::dispatch($data);
     }
 
     public function update($data, $user)
