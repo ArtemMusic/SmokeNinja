@@ -36,10 +36,6 @@
                         @error('email')
                         <p class="text-danger">{{$message}}</p>
                         @enderror
-                        <input id="password" name="password" type="text" class="form-control mb-2" placeholder="Пароль" value="{{old('password')}}">
-                        @error('password')
-                        <p class="text-danger">Поле необходимо для заполнения</p>
-                        @enderror
                         <div class="form-group">
                             <label for="exampleInputFile">Добавить роль</label>
                             <select id="role" class="form-control" name="role">
