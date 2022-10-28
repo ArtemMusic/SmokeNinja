@@ -11,8 +11,9 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="{{route('admin.tag.index')}}">Теги</a></li>
-                        <li class="breadcrumb-item active">TagList</li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Главная</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.tags.index')}}">Теги</a></li>
+                        <li class="breadcrumb-item active">Добавление</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -30,7 +31,7 @@
                         @csrf
                         <input id="title" name="title" type="text" class="form-control" placeholder="Название (макс. 20с)" maxlength="20">
                         @error('title')
-                            <p class="text-danger">Поле необходимо для заполнения</p>
+                        <p class="text-danger">Поле необходимо для заполнения</p>
                         @enderror
                         <button type="submit" class="mt-3 btn btn-block btn-outline-success">Создать</button>
                         <button type="reset" class="btn btn-block btn-outline-secondary">Сбросить</button>

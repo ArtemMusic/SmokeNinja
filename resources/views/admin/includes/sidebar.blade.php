@@ -7,12 +7,20 @@
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">{{Auth::user()->name}}</a>
             </div>
         </div>
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               <li class="nav-item">
+                <a href="{{route('admin.index')}}" class="nav-link">
+                <i class="nav-icon far fa-home"></i>
+                    <p>
+                        Главная
+                    </p>
+                </a>
+            </li>
             <li class="nav-item">
                 <a href="{{route('admin.user.index')}}" class="nav-link">
                     <i class="nav-icon far fa-thin fa-users"></i>
