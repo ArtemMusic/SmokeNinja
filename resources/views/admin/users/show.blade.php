@@ -16,8 +16,9 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Главная</a></li>
                         <li class="breadcrumb-item"><a href="{{route('admin.user.index')}}">Пользователи</a></li>
-                        <li class="breadcrumb-item active">UserList</li>
+                        <li class="breadcrumb-item active">{{$user->name}}</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
