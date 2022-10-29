@@ -30,6 +30,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'perso
     //Лайки
     Route::group(['namespace' => 'Like', 'prefix' => 'likes'], function () {
         Route::get('/', 'IndexController')->name('personal.like.index');
+        Route::delete('/{post}', 'DeleteController')->name('personal.like.delete');
     });
 
     //Комментарии

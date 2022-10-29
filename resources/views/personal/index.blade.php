@@ -28,14 +28,14 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>10</h3>
+                            <h3>{{$posts}}</h3>
 
                             <p>Лайки</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-heart"></i>
                         </div>
-                        <a href="{{route('admin.user.index')}}" class="small-box-footer">Подробнее</a>
+                        <a href="{{route('personal.like.index')}}" class="small-box-footer">Подробнее</a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -50,7 +50,7 @@
                         <div class="icon">
                             <i class="fas fa-comment"></i>
                         </div>
-                        <a href="{{route('admin.post.index')}}" class="small-box-footer">Подробнее</a>
+                        <a href="{{route('personal.comment.index')}}" class="small-box-footer">Подробнее</a>
                     </div>
                 </div>
             </div>
