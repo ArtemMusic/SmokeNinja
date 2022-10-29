@@ -14,10 +14,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Блог
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', 'IndexController')->name('main.index');
 });
 
+//Личный кабинет
+Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth','verified']], function () {
+
+    //Главная
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', 'IndexController')->name('personal.main.index');
+    });
+
+    //Лайки
+    Route::group(['namespace' => 'Like', 'prefix' => 'likes'], function () {
+        Route::get('/', 'IndexController')->name('personal.like.index');
+    });
+
+    //Комментарии
+    Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
+        Route::get('/', 'IndexController')->name('personal.comment.index');
+    });
+});
+
+//Админка
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth','admin', 'verified']], function () {
     Route::get('/', 'IndexController')->name('admin.index');
 
