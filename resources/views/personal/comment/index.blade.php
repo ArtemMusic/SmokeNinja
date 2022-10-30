@@ -25,23 +25,42 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3>10<sup style="font-size: 20px"></sup></h3>
-
-                            <p>Комментарии</p>
+                <div class="col-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Название</th>
+                                            <th colspan="2" class="">Действия</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($comments as $comment)
+                                        <tr>
+                                            <td>{{$comment->id}}</td>
+                                            <td><p max="12">{{$comment->message}}</p></td>
+                                            <td><a href="{{route('personal.comment.edit', $comment->id)}}"><i class="fa-thin fas fa-pen text-success"></i></a></td>
+                                            <td>
+                                                <form action="{{route('personal.comment.delete', $comment->id)}}" method="POST">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="border-0 bg-transparent"><i class="fa-thin fas fa-trash text-danger" role="button"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
                         </div>
-                        <div class="icon">
-                            <i class="fas fa-comment"></i>
-                        </div>
-                        <a href="{{route('admin.post.index')}}" class="small-box-footer">Подробнее</a>
                     </div>
                 </div>
-            </div>
-            <!-- /.row -->
+            </div> <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
