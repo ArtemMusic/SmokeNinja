@@ -14,10 +14,35 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Блог
 Route::group(['namespace' => 'App\Http\Controllers\Main'], function () {
     Route::get('/', 'IndexController')->name('main.index');
 });
 
+//Личный кабинет
+Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth','verified']], function () {
+
+    //Главная
+    Route::group(['namespace' => 'Main'], function () {
+        Route::get('/', 'IndexController')->name('personal.main.index');
+    });
+
+    //Лайки
+    Route::group(['namespace' => 'Like', 'prefix' => 'likes'], function () {
+        Route::get('/', 'IndexController')->name('personal.like.index');
+        Route::delete('/{post}', 'DeleteController')->name('personal.like.delete');
+    });
+
+    //Комментарии
+    Route::group(['namespace' => 'Comment', 'prefix' => 'comments'], function () {
+        Route::get('/', 'IndexController')->name('personal.comment.index');
+        Route::get('/{comment}/edit', 'EditController')->name('personal.comment.edit');
+        Route::patch('/{comment}', 'UpdateController')->name('personal.comment.update');
+        Route::delete('/{comment}', 'DeleteController')->name('personal.comment.delete');
+    });
+});
+
+//Админка
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth','admin', 'verified']], function () {
     Route::get('/', 'IndexController')->name('admin.index');
 
