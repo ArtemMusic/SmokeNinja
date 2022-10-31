@@ -20,18 +20,49 @@
     <header class="edica-header">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <div class="collapse navbar-collapse" id="edicaMainNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item mr-2">
-                            <a href="{{route('login')}}" class="btn btn-outline-primary">Войти</a>
-                        </li>
-                        <li class="nav-item">
-                            <form action="{{route('logout')}}" method="post">
-                                @csrf
-                                <input type="submit" value="Выйти" class="btn btn-outline-primary">
-                            </form>
+                <div class="collapse navbar-collapse justify-content-end" id="edicaMainNav">
+                    @if( auth()->user() )
+                    <img src="dist/img/user1-128x128.jpg" class="rounded-circle z-depth-0" alt="avatar image" height="80" width="80" data-toggle="modal" data-target="#modal" style="cursor: pointer;">
+
+                    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{Auth::user()->name}}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <a href="{{route('personal.main.index')}}">Личный кабинет</a>
+                                    @can('view', auth()->user())
+                                    <br>
+                                    <a href="{{route('admin.index')}}">Админ панель</a>
+                                    @endcan
+                                </div>
+                                <div class="modal-footer">
+                                    <form action="{{route('logout')}}" method="post">
+                                        @csrf
+                                        <input type="submit" value="Выйти" class="btn btn-outline-primary">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+
+
+                    @if( !(auth()->user()) )
+                    <ul class="nav">
+                        <li class="nav-item dropdown" style="border-bottom: 2px solid grey;">
+                            <a style="color:#000000; text-decoration:none;" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">Авторизация</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{url('/login')}}">Войти</a>
+                                <a class="dropdown-item" href="{{url('/register')}}">Регистрация</a>
+                            </div>
                         </li>
                     </ul>
+                    @endif
                 </div>
             </nav>
         </div>
@@ -51,10 +82,10 @@
                 <p class="contact-details">muzychukartem.music@gmail.com</p>
                 <p class="contact-details">+79621216090</p>
                 <nav class="footer-social-links">
-                    <a href="#!"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#!"><i class="fab fa-twitter"></i></a>
-                    <a href="#!"><i class="fab fa-behance"></i></a>
-                    <a href="#!"><i class="fab fa-dribbble"></i></a>
+                    <a href="https://t.me/a_rtem_m"><i class="fab fa-telegram"></i></a>
+                    <a href="https://github.com/ArtemMusic"><i class="fab fa-github"></i></a>
+                    <a href="https://vk.com/artem_mk"><i class="fab fa-vk"></i></a>
+                    <a href="https://wa.me/89621216090"><i class="fab fa-whatsapp"></i></a>
                 </nav>
             </div>
         </div>
