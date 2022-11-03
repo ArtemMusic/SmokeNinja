@@ -7,8 +7,9 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $posts = auth()->user()->likedPosts->count();
+        $posts_likes = auth()->user()->likedPosts->count();
+        $posts_comment = auth()->user()->comments->count();
         // dd($posts);
-        return view('personal.index', compact('posts'));
+        return view('personal.index', compact('posts_likes','posts_comment'));
     }
 }

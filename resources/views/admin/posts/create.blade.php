@@ -30,7 +30,7 @@
                     <form action="{{route('admin.post.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group w-25">
-                            <input id="title" name="title" type="text" class="form-control" placeholder="Название (макс. 20с)" maxlength="20" value="{{old('title')}}">
+                            <input id="title" name="title" type="text" class="form-control" placeholder="Название (макс. 40с)" maxlength="40" value="{{old('title')}}">
                             @error('title')
                             <p class="text-danger">{{$message}}</p>
                             @enderror

@@ -28,7 +28,7 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>{{$posts}}</h3>
+                            <h3>{{$posts_likes}}</h3>
 
                             <p>Лайки</p>
                         </div>
@@ -43,7 +43,7 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>10<sup style="font-size: 20px"></sup></h3>
+                            <h3>{{$posts_comment}}<sup style="font-size: 20px"></sup></h3>
 
                             <p>Комментарии</p>
                         </div>
