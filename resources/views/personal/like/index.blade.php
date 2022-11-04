@@ -44,7 +44,7 @@
                                         <tr>
                                             <td>{{$post->id}}</td>
                                             <td>{{$post->title}}</td>
-                                            <td><a href="/personal/likes"><i class="fa-thin fas fa-eye text-success"></i></a></td>
+                                            <td><a href="{{route('post.show', $post->id)}}"><i class="fa-thin fas fa-eye text-success"></i></a></td>
                                             <td>
                                                 <form action="{{route('personal.like.delete', $post->id)}}" method="POST">
                                                     @csrf

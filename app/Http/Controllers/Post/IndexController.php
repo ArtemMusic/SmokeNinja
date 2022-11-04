@@ -9,10 +9,10 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        // $this -> authorize('view', auth()->user());
-        $posts = Post::paginate(6);
+        $posts = Post::take(6);
+        $posts = $posts->orderBy('id', 'DESC')->paginate(6);
         $randomPosts = Post::get()->random(4);
-        $likedPosts = Post::withCount('likedUsers')->orderBy('liked_users_count','DESC')->get()->take(4); //ASC
+        $likedPosts = Post::withCount('likedUsers')->orderBy('liked_users_count', 'DESC')->get()->take(4); //ASC
         return view('post.index', compact('posts', 'randomPosts', 'likedPosts'));
     }
 }
