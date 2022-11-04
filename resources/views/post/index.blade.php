@@ -70,11 +70,15 @@
                         </form>
                         @endauth()
                         @guest()
-                        <div>
-                            <span>{{$post->comments->count()}}</span>
-                            <a href="{{route('post.show', $post->id)}}" style="color: black;"><i class="far fa-comment"></i></a>
+                        <div class="d-flex">
+                            <div>
+                                <span>{{$post->comments->count()}}</span>
+                                <a href="{{route('post.show', $post->id)}}" style="color: black;"><i class="far fa-comment"></i></a>
+                            </div>
+                            <div class="ml-1">
                             <span>{{$post->liked_users_count}}</span>
                             <a href="{{route('login')}}" style="color:black;"><i class="far fa-heart"></i></a>
+                            </div>
                         </div>
                         @endguest
                     </div>

@@ -28,9 +28,9 @@
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-end" id="edicaMainNav">
+                @if( auth()->user() )
+                @if(auth()->user()->role == 0)
                     <a data-toggle="modal" data-target="#modal2" style="color:#000000; text-decoration:none;" class="nav-link mr-2" href="#">Стать автором</a>
-
-
                     <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog d-flex justify-content-center">
                             <section class="edica-footer-banner-section">
@@ -49,6 +49,8 @@
                             </section>
                         </div>
                     </div>
+                    @endif
+                    @endif
 
                     <div class="m-2 pl-1">
                         @if( auth()->user() )
@@ -66,7 +68,6 @@
                                     <div class="modal-body">
                                         <a href="{{route('personal.main.index')}}" style="text-decoration:none; color:darkslategray"><i class="mr-2 fas fa-arrow-right"></i>Личный кабинет</a>
                                         @can('view', auth()->user())
-                                        
                                         <div  class="mt-3"><a href="{{route('admin.index')}}" style="text-decoration:none; color:darkslategray"><i class="mr-2 fas fa-arrow-right"></i>Кабинет автора</a></div>
                                         @endcan
                                     </div>

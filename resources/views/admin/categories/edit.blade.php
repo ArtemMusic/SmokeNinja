@@ -30,7 +30,7 @@
                     <form action="{{route('admin.category.update', $category->id)}}" class="w-25" method="POST">
                         @method('patch')
                         @csrf
-                        <input id="title" name="title" type="text" class="form-control" placeholder="Название (макс. 20с)" maxlength="20" value="{{$category->title}}">
+                        <input id="title" name="title" type="text" class="form-control" placeholder="Название (макс. 14с)" maxlength="14" value="{{$category->title}}">
                         @error('title')
                         <p class="text-danger">Поле необходимо для заполнения</p>
                         @enderror

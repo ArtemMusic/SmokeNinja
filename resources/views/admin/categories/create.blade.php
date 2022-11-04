@@ -29,7 +29,7 @@
                 <div class="col-12">
                     <form action="{{route('admin.category.store')}}" class="w-25" method="POST">
                         @csrf
-                        <input id="title" name="title" type="text" class="form-control" placeholder="Название (макс. 20с)" maxlength="20">
+                        <input id="title" name="title" type="text" class="form-control" placeholder="Название (макс. 14с)" maxlength="14">
                         @error('title')
                         <p class="text-danger">Поле необходимо для заполнения</p>
                         @enderror
