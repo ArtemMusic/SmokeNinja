@@ -24,9 +24,9 @@
     <section class="content">
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
-            <div class="mb-3 row">
+            <!-- <div class="mb-3 row">
                 <div class="col-1"><a href="{{route('admin.user.create')}}" class="btn btn-block btn-primary">Создать</a></div>
-            </div>
+            </div> -->
             <div class="row">
                 <div class="col-5">
                     <div class="card">

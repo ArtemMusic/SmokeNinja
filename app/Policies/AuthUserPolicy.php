@@ -31,7 +31,7 @@ class AuthUserPolicy
      */
     public function view(User $user, User $model)
     {
-        return $model->role == 0;
+        return $model->role == 1;
     }
 
     /**

@@ -3,11 +3,10 @@
 @section('content')
 <main class="blog-post">
     <div class="container">
-        <a href="{{route('main.index')}}"><i class="nav-icon far fa-home rounded-circle" style="color:black;font-size: 30px;"></i></a>
         <h1 class="edica-page-title" data-aos="fade-up">{{$post->title}}</h1>
         <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">{{$date->translatedFormat('F')}} {{$date->format('d')}}, 20{{$date->format('y')}} {{$date->format('H:i')}} • {{$post->comments->count()}} Комментариев</p>
         <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
-            <img src="{{asset('storage/' . $post->main_image)}}" alt="featured image" class="w-100">
+            <img src="{{asset('storage/' . $post->main_image)}}" alt="featured image" class="w-100" style="border:1px solid transparent; border-radius:10px;">
         </section>
         <section class="post-content">
             <div class="row">
@@ -18,8 +17,8 @@
         </section>
         <div class="row mt-4">
             <div class="col-lg-9 mx-auto">
-                <section class="py-3">
-                @auth()
+                <section class="py-3" data-aos="fade-up">
+                    @auth()
                     <form action="{{route('post.like.store', $post->id)}}" method="POST">
                         @csrf
                         <span>{{$post->liked_users_count}}</span>
@@ -33,11 +32,11 @@
                     </form>
                     @endauth()
                     @guest()
-                        <div>
-                            <span>{{$post->liked_users_count}}</span>
-                            <a href="{{route('login')}}" style="color:black;"><i class="far fa-heart"></i></a>
-                        </div>
-                        @endguest
+                    <div>
+                        <span>{{$post->liked_users_count}}</span>
+                        <a href="{{route('login')}}" style="color:black;"><i class="far fa-heart"></i></a>
+                    </div>
+                    @endguest
                 </section>
                 @if($relatedPosts->count() > 0)
                 <section class="related-posts">
@@ -45,8 +44,8 @@
                     <div class="row">
                         @foreach($relatedPosts as $relatedPost)
                         <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
-                            <a href="{{route('post.show', $relatedPost->id)}}"><img src="{{asset('storage/'. $relatedPost->preview_image)}}" alt="related post" class="post-thumbnail"></a>
-                            <p class="post-category">{{$relatedPost->category_id}}</p>
+                            <a href="{{route('post.show', $relatedPost->id)}}"><img src="{{asset('storage/'. $relatedPost->preview_image)}}" alt="related post" class="post-thumbnail" style="border:1px solid transparent; border-radius:10px;"></a>
+                            <p class="post-category">{{$relatedPost->category->title}}</p>
                             <a href="{{route('post.show', $relatedPost->id)}}">
                                 <h5 class="post-title">{{$relatedPost->title}}</h5>
                             </a>

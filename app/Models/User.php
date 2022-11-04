@@ -14,8 +14,8 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
-    const ADMIN_ROLE = 0;
-    const READER_ROLE = 1;
+    const ADMIN_ROLE = 1;
+    const READER_ROLE = 0;
 
     public static function getRole(){
         return [
