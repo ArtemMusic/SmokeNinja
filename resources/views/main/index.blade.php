@@ -3,7 +3,8 @@
 @section('content')
 <main class="blog">
     <div class="container">
-        <h1 class="edica-page-title" data-aos="fade-up">YourPost</h1>
+        <h1 class="edica-page-title" data-aos="fade-up" style="color:crimson;">SmokeNinja</h1>
+        
         <section class="featured-posts-section">
         <h3 class="edica-page" data-aos="fade-up">Последние посты</h3>
         <br>

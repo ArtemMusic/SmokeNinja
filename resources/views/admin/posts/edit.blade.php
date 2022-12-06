@@ -31,7 +31,7 @@
                         @csrf
                         @method('patch')
                         <div class="form-group w-25">
-                            <input id="title" name="title" type="text" class="form-control" placeholder="Название (макс. 20с)" maxlength="20" value="{{$post->title}}">
+                            <input id="title" name="title" type="text" class="form-control" placeholder="Название (макс. 30с)" maxlength="30" value="{{$post->title}}">
                             @error('title')
                             <p class="text-danger">{{$message}}</p>
                             @enderror
